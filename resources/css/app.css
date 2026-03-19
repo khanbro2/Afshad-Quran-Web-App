@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Instrument+Sans:wght@400;500;600;700&display=swap');
+
+@font-face {
+    font-family: 'Jameel Noori Nastaleeq';
+    src: url('/fonts/JameelNooriNastaleeq-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-arabic: 'Amiri', 'Noto Naskh Arabic', 'Scheherazade New', serif;
+    --font-urdu: 'Jameel Noori Nastaleeq', 'Noto Nastaliq Urdu', 'Awami Nastaliq', 'Urdu Typesetting', serif;
+}
+
+body {
+    min-height: 100vh;
+}
+
+[lang="ar"] {
+    font-family: var(--font-arabic);
+    font-feature-settings: "liga" 1, "calt" 1;
+}
+
+[lang="ur"] {
+    font-family: var(--font-urdu);
+    font-feature-settings: "liga" 1, "calt" 1;
+    line-height: 1.9;
+}
