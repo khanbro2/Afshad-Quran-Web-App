@@ -916,57 +916,19 @@
     </div>
 
     @if ($hasLiveDependencyGraph)
-        @php
-            $style = '';
-            if ($graphStyle === 'grayscale') {
-                $style = 'filter: grayscale(100%);';
-            } elseif ($graphStyle === 'sepia') {
-                $style = 'filter: sepia(70%);';
-            } elseif ($graphStyle === 'invert') {
-                $style = 'filter: invert(75%);';
-            }
-        @endphp
-
         <div class="mt-3 flex flex-wrap items-center justify-between gap-3 text-xs">
             <div class="inline-flex items-center gap-2 rounded-full border border-[#d7c6a5] bg-[#fffaf1] px-3 py-1.5 text-[#7b5a2d] shadow-sm">
-                <span>Live SVG: {{ $hasLiveDependencyGraph ? 'available' : 'missing' }}</span>
+                <span>Live SVG: available</span>
             </div>
-        </div>
-
-        <div class="mt-3 rounded-[1.2rem] border border-[#d8c9b0] bg-[#fff8ee] p-3">
-            <div class="mb-2 flex flex-wrap items-center justify-between gap-2">
-                <p class="text-xs font-semibold uppercase tracking-[0.16em] text-[#0e7c66]">Live Dependency Graph</p>
-                <p class="text-xs text-[#8a7450]">Structured dataset view for cleaner, lighter rendering.</p>
-            </div>
-            @if ($hasLiveDependencyGraph)
-                <div class="dependency-live-graph mt-2 overflow-auto rounded-xl border border-[#decfb7] bg-[#fffaf1] p-3">
-                    {!! $liveDependencyGraphSvg !!}
-                </div>
-            @else
-                <div class="rounded-xl border border-[#d9c49b] bg-[#fbf3e6] p-3 text-sm text-[#8e5f00]">
-                    Structured SVG graph not available for this ayah in the local dataset.
-                </div>
-            @endif
         </div>
 
         <div class="mt-4 rounded-[1.4rem] border border-[#b79c6c] bg-[#efe3cb] p-4 shadow-[0_22px_44px_rgba(83,61,24,0.16)]">
-            <div class="mb-3 flex flex-wrap items-center justify-between gap-3 rounded-[1.15rem] border border-[#d9c29a] bg-[#fbf3e4] px-4 py-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.96),0_8px_16px_rgba(98,74,30,0.08)]">
-                <div>
-                    <p class="text-xs font-semibold uppercase tracking-[0.2em] text-[#0c7b62]">Experimental Copy</p>
-                    <p class="mt-1 text-sm text-[#6a725d]" dir="rtl" lang="ur">یہ ڈپلیکیٹ ورژن صرف styling اور future experiments کے لئے ہے۔</p>
-                </div>
-                <div class="inline-flex items-center gap-2 rounded-full border border-[#b9d8ca] bg-white/80 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#0c7b62] shadow-sm backdrop-blur">
-                    <span>Sandbox</span>
-                    <span class="h-1.5 w-1.5 rounded-full bg-[#0ea56f]"></span>
-                </div>
-            </div>
-
             @if ($hasLiveDependencyGraph)
                 <div class="rounded-[1.5rem] border border-[#dcc4a0] bg-[#f5ead6] p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.95),0_14px_30px_rgba(78,58,24,0.10)] backdrop-blur">
                     <div class="mb-4 flex flex-wrap items-center justify-between gap-3">
                         <div class="space-y-1">
-                            <p class="text-xs font-semibold uppercase tracking-[0.16em] text-[#0b8667]">Experimental Dependency Graph</p>
-                            <p class="text-sm text-[#7a6b54]">Same live SVG data, separate surface for visual experiments.</p>
+                            <p class="text-xs font-semibold uppercase tracking-[0.16em] text-[#0b8667]">Dependency Graph</p>
+                            <p class="text-sm text-[#7a6b54]">Interactive structured SVG surface with hover, focus, mini map, and export.</p>
                         </div>
                         <div class="flex flex-wrap items-center gap-2 text-[11px] font-semibold">
                             <span class="rounded-full border border-[#d4e6dc] bg-[#f2fbf6] px-3 py-1.5 text-[#11775f]">Soft Glass</span>
@@ -1021,7 +983,7 @@
                 </div>
             @else
                 <div class="rounded-xl border border-[#d9c49b] bg-[#fbf3e6] p-3 text-sm text-[#8e5f00]">
-                    Experimental copy is waiting because the live SVG graph is not available for this ayah.
+                    Live dependency graph is not available for this ayah yet.
                 </div>
             @endif
         </div>

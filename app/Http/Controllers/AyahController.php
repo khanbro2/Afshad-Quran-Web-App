@@ -179,8 +179,6 @@ class AyahController extends Controller
 
     $randomAyah = Ayah::with('surah')->inRandomOrder()->first();
 
-    $graphStyle = request('graph_style', 'normal');
-    $graphStyle = in_array($graphStyle, ['normal', 'grayscale', 'invert', 'sepia']) ? $graphStyle : 'normal';
     $liveDependencyGraphSvg = $dependencyGraphs->findByReference($surah->number, $ayah->ayah_number);
 
     $feedbackItems = $ayah->feedback()
@@ -208,7 +206,6 @@ class AyahController extends Controller
         'previousSurahFirstAyah' => $previousSurahFirstAyah,
         'nextSurahFirstAyah' => $nextSurahFirstAyah,
         'randomAyah' => $randomAyah,
-        'graphStyle' => $graphStyle,
         'liveDependencyGraphSvg' => $liveDependencyGraphSvg,
         'feedbackItems' => $feedbackItems,
         'tafseerEntries' => $tafseerEntries,
